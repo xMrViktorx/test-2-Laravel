@@ -1,23 +1,67 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+{{-- Extend and customize the browser title --}}
+
+@section('title')
+    {{ config('adminlte.title') }}
+    @hasSection('subtitle')
+        | @yield('subtitle')
+    @endif
+@stop
+
+{{-- Extend and customize the page content header --}}
+
+@section('content_header')
+    @hasSection('content_header_title')
+        <h1 class="text-muted">
+            @yield('content_header_title')
+
+            @hasSection('content_header_subtitle')
+                <small class="text-dark">
+                    <i class="fas fa-xs fa-angle-right text-muted"></i>
+                    @yield('content_header_subtitle')
+                </small>
+            @endif
+        </h1>
+    @endif
+@stop
+
+{{-- Rename section content to content_body --}}
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    @include('layouts.flash-message')
+    @yield('content_body')
+@stop
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+{{-- Create a common footer --}}
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+@section('footer')
+    <div class="float-right">
+        Version: {{ config('app.version', '1.0.0') }}
     </div>
-</div>
-@endsection
+
+    <strong>
+        <a href="{{ config('app.company_url', '#') }}">
+            {{ config('app.company_name', 'Made by Viktor Molnar') }}
+        </a>
+    </strong>
+@stop
+
+@push('css')
+    <style type="text/css">
+        .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+            background-color: #6C757D;
+        }
+
+        .card-primary:not(.card-outline)>.card-header {
+            background-color: #343A40;
+        }
+
+        a {
+            color: #343A40;
+            &:hover {
+                color: #6C757D;
+            }
+        }
+    </style>
+@endpush
