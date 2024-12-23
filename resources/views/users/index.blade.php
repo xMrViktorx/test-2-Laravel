@@ -1,6 +1,6 @@
 @extends('home')
 
-@section('subtitle', 'Welcome')
+@section('subtitle', 'Users')
 
 @section('content_body')
 

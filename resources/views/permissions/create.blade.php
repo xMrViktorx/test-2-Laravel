@@ -1,6 +1,6 @@
 @extends('home')
 
-@section('subtitle', 'Welcome')
+@section('subtitle', 'Permissions')
 
 @section('content_body')
     <div class="row pt-3">
