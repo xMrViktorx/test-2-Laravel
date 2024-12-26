@@ -47,6 +47,10 @@ class DataImportController extends Controller
         $importType = $request->input('import_type');
         $imports = config('import');
 
+        if (!$imports) {
+            abort(404, 'File configuration not found.');
+        }
+
         // Check if the selected import type is valid
         if (!isset($imports[$importType])) {
             return redirect()->back()->with('error', 'Invalid import type selected');

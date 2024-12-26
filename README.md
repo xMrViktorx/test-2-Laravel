@@ -28,6 +28,6 @@ PHP: v8.2.12
 3. Go to Data Import page
 4. Select Import products and upload the products.xlsx file from the resources/imports folder
 5. Select Import orders and upload the orders.xlsx file from the resources/imports folder
-6. Select Import customers and transactions and upload the custoemrs.xlsx and transactions.xlsx files from the resources/imports folder
+6. Select Import customers and transactions and upload the customers.xlsx and transactions.xlsx files from the resources/imports folder
 
 # In addition to Happy flow, all functions must work as described in the task.

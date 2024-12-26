@@ -30,6 +30,10 @@ class ImportedDataController extends Controller
     {
         $config = config("import");
 
+        if (!$config) {
+            abort(404, 'File configuration not found.');
+        }
+
         $fileConfig = [];
         $permission = '';
 
@@ -49,6 +53,11 @@ class ImportedDataController extends Controller
         $search = $request->input('search');
         
         $modelClass = '\\App\\Models\\' . Str::singular(ucfirst($file));
+
+        if (!class_exists($modelClass)) {
+            abort(404, 'Model not found.');
+        }
+
         $query = $modelClass::query();
 
         if ($search) {
@@ -73,6 +82,11 @@ class ImportedDataController extends Controller
     {
         $config = config("import");
 
+        // Validate import configuration file
+        if (!$config) {
+            abort(404, 'File configuration not found.');
+        }
+
         $fileConfig = [];
 
         // Find the specific configuration for the given file
@@ -89,6 +103,11 @@ class ImportedDataController extends Controller
 
         // Fetch data from the database, excluding specific fields
         $modelClass = '\\App\\Models\\' . Str::singular(ucfirst($file));
+
+        if (!class_exists($modelClass)) {
+            abort(404, 'Model not found.');
+        }
+
         $data = $modelClass::select(array_diff(array_keys($fileConfig['headers_to_db']), ['id', 'created_at', 'updated_at']))->get();
 
         // Generate the Excel file and return it for download
@@ -126,7 +145,16 @@ class ImportedDataController extends Controller
         $file = $request->input('file');
         $permission = $request->input('permission');
 
+        if (empty($file) || empty($permission)) {
+            abort(400, 'Invalid parameters.');
+        }
+
         $modelClass = '\\App\\Models\\' . Str::singular(ucfirst($file));
+
+        if (!class_exists($modelClass)) {
+            abort(404, 'Model not found.');
+        }
+
         $model = $modelClass::findOrFail($id);
 
         // Check if the authenticated user has the required permission
