@@ -63,5 +63,14 @@
                 color: #6C757D;
             }
         }
+
+        .page-item.active .page-link {
+            background-color: #343A40;
+            border-color: #343A40;
+        }
+
+        .page-link, .page-link:hover {
+            color: #343A40;
+        }
     </style>
 @endpush

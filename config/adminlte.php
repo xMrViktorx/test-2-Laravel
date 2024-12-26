@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'MassData',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -62,7 +62,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Mass</b>Data',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -328,21 +328,20 @@ return [
         ],
         [
             'text' => 'Data Import',
-            'url' => '/',
+            'url' => '/data-import',
             'icon' => 'fas fa-fw fa-file-import',
-            'label_color' => 'success',
+            'can' => 'data-import'
         ],
         [
             'text' => 'Imported Data',
-            'url' => '/',
+            'url' => '/imported-data',
             'icon' => 'fas fa-fw fa-chart-line',
-            'label_color' => 'success',
+            'submenu' => []
         ],
         [
             'text' => 'Imports',
-            'url' => '/',
+            'url' => '/imports',
             'icon' => 'fas fa-fw fa-database',
-            'label_color' => 'success',
         ],
     ],
 

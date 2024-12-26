@@ -11,10 +11,11 @@ PHP: v8.2.12
 2. Go to the development branch (git checkout development).
 3. Create the environment file -> cp .env.example .env
 4. Configure your .env (set your database, and a mail delivery system: mailhog, mailtrap etc...)
-5. composer install
-6. npm install
-7. php artisan migrate
-8. php artisan db:seed
+5. Run composer install
+9. Run php artisan optimize
+6. Run npm install
+7. Run php artisan migrate
+8. Run php artisan db:seed
 9. Run php artisan serve
 10. Run npm run dev
 11. Run php artisan queue:listen

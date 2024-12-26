@@ -19,19 +19,19 @@ class PermissionController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of all permissions and associated users.
      * @return Renderable
      */
     public function index()
     {
         $permissions = Permission::all();
-        $users = User::with('permissions')->get(); // Include permissions for each user
+        $users = User::with('permissions')->get(); // Fetch all users with their permissions
 
         return view('permissions.index', compact('permissions', 'users'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new permission.
      * @return Renderable
      */
     public function create()
@@ -40,7 +40,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created permission in the database.
      * @param Request $request
      * @return Renderable
      */
@@ -56,7 +56,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing an existing permission.
      * @param int $id
      * @return Renderable
      */
@@ -68,7 +68,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing permission in the database.
      * @param Request $request
      * @param int $id
      * @return Renderable
@@ -87,7 +87,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a permission from the database.
      * @param int $id
      * @return Renderable
      */
@@ -101,7 +101,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Assign permissions to a user.
      * @param Request $request
      * @return Renderable
      */

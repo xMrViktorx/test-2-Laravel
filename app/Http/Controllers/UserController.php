@@ -19,7 +19,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of all users.
      * @return Renderable
      */
     public function index()
@@ -29,7 +29,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new user.
      * @return Renderable
      */
     public function create()
@@ -38,7 +38,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created user in the database.
      * @param Request $request
      * @return Renderable
      */
@@ -58,7 +58,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing an existing user.
      * @param int $id
      * @return Renderable
      */
@@ -70,7 +70,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing user in the database.
      * @param Request $request
      * @param int $id
      * @return Renderable
@@ -102,7 +102,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a user from the database.
      * @param int $id
      * @return Renderable
      */

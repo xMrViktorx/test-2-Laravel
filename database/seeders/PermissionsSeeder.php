@@ -14,7 +14,7 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        $permissions = ['user-management'];
+        $permissions = ['user-management', 'import-orders', 'import-products', 'import-customers-transactions'];
 
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
