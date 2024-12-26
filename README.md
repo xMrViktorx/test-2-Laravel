@@ -1,7 +1,9 @@
 # Test 2 - Laravel
 
 Laravel: v11.36.1
+
 Node: v20.9.0
+
 PHP: v8.2.12
 
 # Project setup
